@@ -1,31 +1,28 @@
-import java.util.*;
+import java.util.HashSet;
+
 public class RemoveDuplicates {
-    public static Set<Object> toUnique(ArrayList<? extends Object> arr){
-        Set<Object> set = new HashSet<>(arr);
-       
-        return set;
+
+    String removeDups(String S) {
+        HashSet<Character> set = new HashSet<>();
         
+        String ans = "";
+        for(int i = 0 ; i < S.length() ; i++){
+            if(set.contains(S.charAt(i))){
+                continue;
+            }
+            set.add(S.charAt(i));
+            ans += S.charAt(i);
+        }
+        return ans;
     }
+
     public static void main(String args[]){
-        ArrayList<String> arr = new ArrayList<>();
-        arr.add("Adarsh");
-        arr.add("Singh");
-        arr.add("Parihar");
-        arr.add("Astha");
-        arr.add("Singh");
-        arr.add("Parihar");
 
+        String S = "zvvo";
 
-        ArrayList<Integer> num = new ArrayList<>();
-        num.add(100);
-        num.add(200);
-        num.add(300);
-        num.add(400);
-        num.add(200);
-        num.add(100);
+        RemoveDuplicates r = new RemoveDuplicates();
+        System.out.println(r.removeDups(S));
 
-        System.out.println(toUnique(arr));
-        System.out.println(toUnique(num));
     }
     
 }
